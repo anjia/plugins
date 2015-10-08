@@ -44,7 +44,7 @@
 					switch(s){
 						case 'url':
 
-							//hack：在好搜的https下，url会被删掉开头的"http:"，此时qq空间的分享会失效。为了兼容此种情况，故此处把它再次补全
+							//hack：xxx情况下，url被删掉了开头的"http:" 会导致qq空间的分享会失效。为兼容此种情况，故此处把它再次补全
 							if(/^\/\//.test(options.content.url)){
 								options.content.url = 'http:' + options.content.url;
 							}
@@ -84,20 +84,20 @@
 				url: '',
 				pic: ''
 			},
-			before: null,//分享前，修改content属性的回调函数
+			before: null,  //分享前，修改content属性的回调函数
 			selector: {
 				btn: '.mh-share',
 				wxWrap: '.mh-weixin-wrap',
 				wxQrCode: '.mh-qrCode',
 				wxClose: '.mh-close'
 			},
-			wxQrCodeSize: 3//微信二维码图片的大小，单位"倍"，1倍=25*25
+			wxQrCodeSize: 3  //微信二维码图片的大小，单位"倍"，1倍=25*25
 		};
 
 		options = $.extend(options, opt);
 
 		//由于此处只绑定事件，故没用隐式迭代
-		addClickListener(this, options);//this代表jQuery对象，是个数组
+		addClickListener(this, options);  //this代表jQuery对象，是个数组
 
 		return this;
 	};
